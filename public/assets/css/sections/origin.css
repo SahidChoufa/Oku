@@ -1,0 +1,42 @@
+/* Carte d'origine (SVG) et légende interactive. */
+.origin { display: grid; gap: 24px; }
+.map { width: 100%; height: auto; border-radius: 8px; }
+.map .sea { fill: #100b09; }
+.map .rg { fill: #1f1713; stroke: #4a372b; stroke-width: 1; }
+.map .rg.hl { fill: #3a2b1c; stroke: #8c6f45; }
+.map .pt { transition: opacity .3s; }
+.map .pt .dot { fill: var(--gold); }
+.map .pt.city .dot { fill: var(--bg); stroke: var(--fg); stroke-width: 2; }
+.map .pt .halo { fill: var(--gold); opacity: 0; transform-box: fill-box; transform-origin: center; }
+.map .pt.on .halo { opacity: .35; animation: pulse 1.6s var(--ease) infinite; }
+@keyframes pulse { from { transform: scale(.4); opacity: .5; } to { transform: scale(1.6); opacity: 0; } }
+.map .lb { font-family: var(--mono); font-size: 17px; fill: var(--fg); paint-order: stroke; stroke: #100b09; stroke-width: 4px; }
+.map .lb2 { font-family: var(--mono); font-size: 15px; fill: var(--gold); paint-order: stroke; stroke: #100b09; stroke-width: 4px; }
+.map.focus .pt:not(.on) { opacity: .3; }
+.map .inset path { fill: #2a1f18; stroke: #5c4838; stroke-width: .5; }
+.map .inset .ibg { fill: #140e0b; stroke: #3a2b21; }
+.map .inset .icrop { fill: none; stroke: var(--gold); stroke-width: 1.2; }
+
+.legend { display: grid; gap: 10px; }
+.legend button {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 14px;
+  align-items: start;
+  text-align: left;
+  width: 100%;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  transition: border-color .25s, background .25s;
+}
+.legend button:hover, .legend button.on { border-color: var(--gold); }
+.legend .sw { grid-row: span 2; width: 12px; height: 12px; border-radius: 50%; margin-top: 7px; background: var(--gold); }
+.legend .sw.ring { background: transparent; border: 2px solid var(--fg); }
+.legend b { font-family: var(--display); font-weight: 500; font-size: 1.3rem; }
+.legend span { color: var(--muted); font-size: .92rem; }
+
+@media (min-width: 960px) {
+  .origin { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); align-items: center; gap: 48px; }
+}

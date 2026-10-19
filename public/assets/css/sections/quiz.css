@@ -1,0 +1,41 @@
+/* Quiz « Trouver mon café ». */
+.quiz { background: var(--bg2); border: 1px solid var(--line2); border-radius: 10px; padding: 22px 16px 20px; overflow: hidden; position: relative; }
+.qbar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 22px; }
+.qbar i { height: 3px; background: var(--line2); border-radius: 2px; overflow: hidden; position: relative; }
+.qbar i::after { content: ""; position: absolute; inset: 0; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .5s var(--ease); }
+.qbar i.on::after { transform: scaleX(1); }
+.qstep { animation: qin .55s var(--ease) both; }
+@keyframes qin { from { transform: translateX(24px); } to { transform: none; } }
+.qstep .n { font-family: var(--mono); font-size: .7rem; letter-spacing: .14em; color: var(--dim); text-transform: uppercase; }
+.qstep h3 { font-size: clamp(1.6rem, 6.4vw, 2.4rem); margin: 8px 0 18px; }
+.qopts { display: grid; gap: 10px; }
+.qopts button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  text-align: left;
+  min-height: 56px;
+  padding: 14px 16px;
+  border: 1px solid var(--line2);
+  border-radius: 8px;
+  background: var(--surface);
+  font-size: 1rem;
+  transition: border-color .25s, background .25s;
+}
+.qopts button::after { content: "→"; font-family: var(--mono); color: var(--dim); transition: transform .3s var(--ease), color .3s; }
+.qopts button:hover { border-color: var(--gold); }
+.qopts button:hover::after { transform: translateX(4px); color: var(--gold); }
+.qres { display: grid; gap: 18px; animation: qin .6s var(--ease) both; }
+.qres .ph { aspect-ratio: 4 / 5; background: var(--cream); border-radius: 8px; overflow: hidden; max-width: 300px; }
+.qres .ph img { width: 100%; height: 100%; object-fit: cover; }
+.qres h3 { font-size: clamp(2rem, 8vw, 3rem); }
+.qres .why { color: #dccdb9; }
+.qres .more { color: var(--muted); font-size: .95rem; }
+.qres .row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+
+@media (min-width: 600px) {
+  .quiz { padding: 30px 28px; }
+  .qopts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .qres { grid-template-columns: minmax(0, 240px) minmax(0, 1fr); align-items: center; }
+}

@@ -1,0 +1,61 @@
+/* Panier et tunnel de commande : tiroir dans un calque fixe découpé, rien ne déborde de l'écran. */
+.cart { position: fixed; inset: 0; z-index: 80; visibility: hidden; pointer-events: none; overflow: hidden; transition: visibility 0s .6s; }
+.cart.open { visibility: visible; pointer-events: auto; transition: visibility 0s; }
+.scrim { position: absolute; inset: 0; background: rgba(0, 0, 0, .62); opacity: 0; transition: opacity .5s var(--ease); }
+.cart.open .scrim { opacity: 1; }
+.drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(480px, 100%);
+  background: var(--surface);
+  border-left: 1px solid var(--line);
+  transform: translateX(100%);
+  transition: transform .6s var(--ease);
+  display: flex;
+  flex-direction: column;
+}
+.cart.open .drawer { transform: none; }
+.dhead { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: calc(12px + env(safe-area-inset-top, 0px)) 12px 10px 18px; border-bottom: 1px solid var(--line); }
+.dhead h2 { font-size: 1.7rem; }
+.x { background: none; border: none; color: var(--muted); font-size: 1.9rem; line-height: 1; width: 44px; height: 44px; flex: none; }
+.stepper { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 10px 18px 12px; border-bottom: 1px solid var(--line); }
+.stepper span { font-family: var(--mono); font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); padding-top: 8px; border-top: 2px solid var(--line2); transition: color .3s, border-color .3s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.stepper span.on { color: var(--gold); border-color: var(--gold); }
+.dbody { flex: 1; overflow: auto; padding: 16px 18px 24px; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.view { animation: vin .45s var(--ease) both; }
+@keyframes vin { from { transform: translateX(16px); } to { transform: none; } }
+.dfoot { border-top: 1px solid var(--line); padding: 12px 18px calc(12px + env(safe-area-inset-bottom, 0px)); background: var(--surface); display: grid; gap: 10px; }
+.dfoot .tot { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--mono); font-size: 1.05rem; }
+.helpline { font-size: .82rem; color: var(--dim); text-align: center; }
+.helpline b { color: var(--muted); font-weight: 600; }
+
+.items { display: flex; flex-direction: column; gap: 12px; }
+.item { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 2px 12px; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.item img { grid-row: span 2; width: 56px; height: 70px; object-fit: cover; border-radius: 4px; background: var(--cream); }
+.item b { font-weight: 600; font-size: .95rem; line-height: 1.3; }
+.item .u { font-family: var(--mono); font-size: .72rem; color: var(--dim); }
+.item .u.r { justify-self: end; }
+.qty { display: flex; gap: 8px; align-items: center; font-family: var(--mono); justify-self: end; }
+.qty button { background: none; border: 1px solid var(--line2); width: 32px; height: 32px; border-radius: 50%; }
+.empty { color: var(--muted); font-family: var(--display); font-style: italic; font-size: 1.3rem; padding-top: 8px; }
+.back { background: none; border: none; padding: 4px 0 14px; color: var(--muted); font-size: .9rem; display: inline-flex; gap: 6px; align-items: center; }
+.back:hover { color: var(--fg); }
+
+.recap { border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; display: grid; gap: 8px; font-size: .92rem; }
+.recap .ln { display: flex; justify-content: space-between; gap: 12px; }
+.recap .ln span:first-child { min-width: 0; }
+.recap .ln span:last-child { font-family: var(--mono); white-space: nowrap; }
+.recap .ln.t { border-top: 1px solid var(--line); padding-top: 8px; font-weight: 600; }
+.secure { display: flex; align-items: flex-start; gap: 10px; font-size: .84rem; color: var(--muted); margin-top: 14px; }
+.secure svg { width: 18px; height: 18px; flex: none; margin-top: 2px; color: var(--gold); }
+.privacy { font-size: .8rem; color: var(--dim); margin-top: 10px; }
+.privacy a { color: var(--muted); }
+
+.done { display: grid; gap: 14px; }
+.done h3 { font-size: clamp(2rem, 8vw, 2.6rem); }
+.ref { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font-family: var(--mono); font-size: .9rem; }
+.ref b { color: var(--gold); font-weight: 500; letter-spacing: .06em; }
+.box { border: 1px solid var(--line); border-radius: 8px; padding: 14px; display: grid; gap: 6px; font-size: .92rem; color: var(--muted); }
+.box b { color: var(--fg); font-weight: 600; }

@@ -1,0 +1,84 @@
+/* Champs de formulaire, cases à cocher, choix de paiement, messages. */
+.f { min-width: 0; }
+.f label { display: block; font-size: .86rem; color: var(--muted); margin-bottom: 6px; }
+.f label .opt-t { color: var(--dim); }
+.f input, .f select, .f textarea {
+  width: 100%;
+  min-height: 50px;
+  background: var(--bg2);
+  border: 1px solid var(--line2);
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-size: 1rem;
+  transition: border-color .25s;
+}
+.f textarea { min-height: 84px; resize: vertical; line-height: 1.45; }
+.f input::placeholder, .f textarea::placeholder { color: var(--dim); }
+.f input:focus, .f select:focus, .f textarea:focus { border-color: var(--gold); outline: none; }
+.f select { appearance: none; -webkit-appearance: none; padding-right: 38px; }
+.f .err, .check .err { display: none; color: var(--error); font-size: .84rem; margin-top: 6px; }
+.f.bad input, .f.bad select, .f.bad textarea { border-color: var(--error-line); }
+.f.bad .err, .check.bad .err { display: block; }
+
+.sel { position: relative; }
+.sel select {
+  width: 100%;
+  min-height: 44px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--bg2);
+  border: 1px solid var(--line2);
+  border-radius: 6px;
+  padding: 10px 38px 10px 12px;
+  font-size: 1rem;
+}
+.sel::after {
+  content: "";
+  position: absolute;
+  right: 14px;
+  bottom: 18px;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid var(--muted);
+  border-bottom: 1.5px solid var(--muted);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+.f.sel.bad::after { bottom: 46px; }
+
+.check { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; align-items: start; font-size: .9rem; color: var(--muted); }
+.check input { margin: 3px 0 0; width: 18px; height: 18px; accent-color: var(--gold); }
+.check a { color: var(--fg); }
+.check .err { grid-column: 2; margin-top: 0; }
+.check.bad input { outline: 2px solid var(--error-line); outline-offset: 2px; }
+
+fieldset { border: none; margin: 0 0 26px; padding: 0; display: grid; gap: 12px; min-width: 0; }
+legend { font-family: var(--mono); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; padding: 0; }
+.two { display: grid; gap: 12px; }
+
+.radio { display: grid; gap: 10px; }
+.radio label {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3px 12px;
+  align-items: start;
+  padding: 14px;
+  border: 1px solid var(--line2);
+  border-radius: 8px;
+  background: var(--bg2);
+  cursor: pointer;
+  transition: border-color .25s, background .25s;
+}
+.radio input { margin: 3px 0 0; accent-color: var(--gold); width: 18px; height: 18px; }
+.radio label:has(input:checked) { border-color: var(--gold); background: rgba(214, 173, 100, .08); }
+.radio b { font-weight: 600; }
+.radio small { grid-column: 2; color: var(--muted); font-size: .86rem; line-height: 1.45; }
+
+.ok { margin-top: 16px; color: var(--gold); font-family: var(--display); font-size: 1.35rem; }
+.ok.err { color: var(--error); font-family: var(--body); font-size: 1rem; }
+.ok small { display: block; font-family: var(--mono); font-size: .7rem; color: var(--dim); margin-top: 6px; }
+.alert { border: 1px solid var(--error-line); color: var(--error); border-radius: 8px; padding: 12px 14px; font-size: .9rem; }
+
+@media (min-width: 600px) {
+  .two { grid-template-columns: 1fr 1fr; }
+}

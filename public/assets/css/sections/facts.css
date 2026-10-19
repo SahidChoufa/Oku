@@ -1,0 +1,17 @@
+/* Le constat : phrase forte et chiffres sourcés. */
+.fact { font-family: var(--display); font-size: clamp(1.9rem, 7vw, 3.8rem); line-height: 1.08; letter-spacing: -.01em; max-width: 22ch; }
+.fact em { font-style: italic; color: var(--gold); display: block; margin-top: 10px; }
+.stats { display: grid; margin-top: 36px; border-top: 1px solid var(--line); }
+.stat { display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: 16px; padding-block: 18px; border-bottom: 1px solid var(--line); }
+.stat b { font-family: var(--display); font-weight: 400; font-size: clamp(2.2rem, 10vw, 3.6rem); line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.stat b small { font-size: .42em; color: var(--gold); margin-left: .1em; }
+.stat:nth-child(2) b { color: var(--ember); }
+.stat p { color: var(--muted); font-size: .95rem; }
+.src { margin-top: 16px; font-family: var(--mono); font-size: .7rem; line-height: 1.7; color: var(--dim); }
+.src a { color: var(--muted); }
+
+@media (min-width: 600px) {
+  .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid var(--line); }
+  .stat { grid-template-columns: minmax(0, 1fr); gap: 8px; border-bottom: none; padding: 22px 18px 22px 0; }
+  .stat + .stat { padding-left: 18px; border-left: 1px solid var(--line); }
+}

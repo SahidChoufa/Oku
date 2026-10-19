@@ -1,0 +1,47 @@
+/* Pages légales et page de retour de paiement. */
+.doc { padding-block: 40px 0; }
+.doc-grid { display: grid; gap: 32px; }
+.doc-grid > * { min-width: 0; }
+.doc h1 { font-size: clamp(2.4rem, 9vw, 4.2rem); letter-spacing: -.015em; margin-top: 12px; }
+.doc .updated { margin-top: 14px; font-family: var(--mono); font-size: .72rem; color: var(--dim); }
+.toc { display: grid; gap: 8px; align-content: start; font-size: .9rem; border-top: 1px solid var(--line); padding-top: 18px; }
+.toc a { color: var(--muted); text-decoration: none; }
+.toc a:hover { color: var(--fg); }
+.prose { max-width: 70ch; }
+.prose h2 { font-size: clamp(1.6rem, 5vw, 2.2rem); margin: 44px 0 14px; scroll-margin-top: 80px; }
+.prose h2:first-child { margin-top: 0; }
+.prose h3 { font-family: var(--body); font-weight: 700; font-size: 1rem; margin: 22px 0 8px; }
+.prose p, .prose li { color: #d5c7b4; }
+.prose p + p { margin-top: 12px; }
+.prose ul { padding-left: 20px; margin: 10px 0; display: grid; gap: 6px; }
+.prose a { color: var(--fg); text-underline-offset: 3px; }
+.prose dl { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px 20px; margin: 12px 0; }
+.prose dt { font-family: var(--mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-top: 10px; }
+.prose dd { margin: 0; color: #d5c7b4; }
+.prose table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.prose th, .prose td { text-align: left; vertical-align: top; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--line); }
+.prose th { font-family: var(--mono); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+.table-wrap { overflow-x: auto; margin: 12px 0; }
+.todo { background: rgba(214, 173, 100, .16); color: var(--gold); border-bottom: 1px dashed var(--gold); padding: 0 3px; border-radius: 2px; }
+
+/* page de retour K-PAY */
+.pay-page { padding-block: 56px 0; }
+.pay-card { max-width: 620px; display: grid; gap: 16px; border: 1px solid var(--line2); border-radius: 10px; padding: 28px 20px; background: var(--bg2); }
+.pay-card h1 { font-size: clamp(2.2rem, 8vw, 3.2rem); }
+.pay-card .lead { color: #dccdb9; }
+.pay-card .row { display: flex; flex-wrap: wrap; gap: 10px; }
+.pay-card .ref { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font-family: var(--mono); font-size: .9rem; }
+.pay-card .ref b { color: var(--gold); font-weight: 500; letter-spacing: .06em; }
+.pay-card .box { border: 1px solid var(--line); border-radius: 8px; padding: 14px; display: grid; gap: 6px; color: var(--muted); }
+.pay-card .box b { color: var(--fg); }
+.pay-card .helpline { font-size: .84rem; color: var(--dim); }
+.pay-card .helpline b { color: var(--muted); }
+
+@media (min-width: 960px) {
+  .doc { padding-block: 72px 0; }
+  .doc-grid { grid-template-columns: 240px minmax(0, 1fr); gap: 64px; }
+  .toc { position: sticky; top: 90px; }
+  .prose dl { grid-template-columns: 220px minmax(0, 1fr); }
+  .prose dt { margin-top: 0; padding-top: 3px; }
+  .pay-card { padding: 40px; }
+}

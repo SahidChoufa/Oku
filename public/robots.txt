@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /paiement.html
+Disallow: /api/

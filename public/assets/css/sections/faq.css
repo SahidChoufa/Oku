@@ -1,0 +1,25 @@
+/* Questions fréquentes (accordéon natif <details>). */
+.faq { border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+  cursor: pointer;
+  font-family: var(--display);
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-family: var(--mono); font-size: 1.3rem; color: var(--gold); transition: transform .35s var(--ease); flex: none; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { color: var(--muted); padding: 0 0 22px; max-width: 62ch; animation: fin .45s var(--ease); }
+.faq details p a { color: var(--fg); }
+@keyframes fin { from { transform: translateY(-6px); } to { transform: none; } }
+
+@media (min-width: 960px) {
+  .faq-wrap { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 48px; align-items: start; }
+}

@@ -1,0 +1,18 @@
+/* Service client et hotline. */
+.help { display: grid; gap: 22px; border: 1px solid var(--line2); border-radius: 10px; padding: 24px 18px; background: var(--bg2); position: relative; overflow: hidden; }
+.help h2 { font-size: clamp(2rem, 7vw, 3.4rem); }
+.hl-num { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.hl-num .num { font-family: var(--display); font-size: clamp(1.5rem, 7vw, 3.2rem); line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.hl-num .num.ph { color: var(--dim); }
+.pill { display: inline-block; font-family: var(--mono); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; border: 1px dashed var(--gold); color: var(--gold); padding: 5px 9px; border-radius: 999px; white-space: nowrap; }
+.help .row { display: grid; gap: 10px; }
+.help .topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.help .topics span { font-family: var(--mono); font-size: .7rem; color: var(--muted); border: 1px solid var(--line2); border-radius: 999px; padding: 5px 10px; }
+
+@media (min-width: 600px) {
+  .help { padding: 34px 30px; }
+  .help .row { grid-auto-flow: column; justify-content: start; }
+}
+@media (min-width: 960px) {
+  .help { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; padding: 44px 40px; }
+}

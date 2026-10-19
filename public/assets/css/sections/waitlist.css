@@ -1,0 +1,28 @@
+/* Liste prioritaire du lot 001. */
+.drop { margin-top: 72px; padding-block: 72px; border-top: 1px solid var(--line); position: relative; overflow: hidden; }
+.drop .ghost001 {
+  position: absolute;
+  right: -4%;
+  bottom: -12%;
+  font-family: var(--display);
+  font-size: clamp(9rem, 40vw, 26rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--line2);
+  pointer-events: none;
+  user-select: none;
+}
+.drop .wrap { position: relative; }
+.drop h2 { max-width: 14ch; }
+.wl { display: grid; gap: 10px; margin-top: 26px; max-width: 820px; }
+.wl .check { margin-top: 4px; }
+
+@media (min-width: 600px) {
+  .wl { grid-template-columns: 1fr 1fr; }
+  .wl .btn, .wl .check { grid-column: 1 / -1; }
+}
+@media (min-width: 960px) {
+  .drop { margin-top: 110px; padding-block: 110px; }
+  .wl { grid-template-columns: 1fr 1fr 200px auto; }
+  .wl .btn { grid-column: auto; }
+}

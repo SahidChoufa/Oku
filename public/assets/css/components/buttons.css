@@ -1,0 +1,49 @@
+/* Boutons et liens d'action. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: .01em;
+  text-decoration: none;
+  text-align: center;
+  transition: background .3s, border-color .3s, transform .4s var(--ease);
+}
+.btn:hover:not(:disabled) { background: var(--fg); border-color: var(--fg); }
+.btn:active:not(:disabled) { transform: scale(.98); }
+.btn.ghost { background: transparent; color: var(--fg); border-color: var(--line2); }
+.btn.ghost:hover:not(:disabled) { border-color: var(--gold); background: transparent; }
+.btn svg { width: 18px; height: 18px; flex: none; }
+
+.link { background: none; border: none; padding: 8px 0; color: var(--muted); text-decoration: underline; text-underline-offset: 4px; }
+
+.iconbtn {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line2);
+  border-radius: 50%;
+  text-decoration: none;
+  transition: border-color .3s;
+}
+.iconbtn:hover { border-color: var(--gold); }
+.iconbtn svg { width: 18px; height: 18px; }
+
+.copy {
+  background: none;
+  border: 1px solid var(--line2);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-family: var(--mono);
+  font-size: .72rem;
+  color: var(--muted);
+}
+.copy:hover:not(:disabled) { border-color: var(--gold); color: var(--fg); }

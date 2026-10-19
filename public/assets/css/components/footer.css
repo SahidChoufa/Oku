@@ -1,0 +1,20 @@
+/* Pied de page avec liens légaux. */
+footer.site {
+  margin-top: 72px;
+  border-top: 1px solid var(--line);
+  padding-block: 30px calc(40px + env(safe-area-inset-bottom, 0px));
+  font-family: var(--mono);
+  font-size: .72rem;
+  line-height: 1.8;
+  color: var(--dim);
+}
+footer.site .wrap { display: grid; gap: 18px; }
+footer.site a { color: var(--muted); }
+footer.site .legal-links { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+footer.site .legal-links a { text-decoration: none; }
+footer.site .legal-links a:hover { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (min-width: 960px) {
+  footer.site .wrap { grid-template-columns: 1fr auto; align-items: end; }
+  footer.site .legal-links { grid-column: 1 / -1; }
+}

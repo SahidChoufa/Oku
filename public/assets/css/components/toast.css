@@ -1,0 +1,24 @@
+/* Message bref en bas de l'écran. Totalement masqué au repos pour ne jamais couvrir un bouton. */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  z-index: 90;
+  transform: translate(-50%, 24px);
+  opacity: 0;
+  visibility: hidden;
+  background: var(--fg);
+  color: var(--ink);
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: .92rem;
+  max-width: calc(100% - 32px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  transition: transform .5s var(--ease), opacity .35s, visibility 0s .5s;
+}
+.toast.on { transform: translate(-50%, 0); opacity: 1; visibility: visible; transition: transform .5s var(--ease), opacity .35s, visibility 0s; }
+.cart.open ~ .toast { bottom: calc(150px + env(safe-area-inset-bottom, 0px)); }

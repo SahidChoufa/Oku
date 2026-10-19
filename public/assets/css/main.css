@@ -1,0 +1,23 @@
+/* Feuille d'entrée de la boutique (index.html). Chaque module est un fichier séparé. */
+@import url("fonts.css");
+@import url("tokens.css");
+@import url("base.css");
+
+@import url("components/buttons.css");
+@import url("components/forms.css");
+@import url("components/header.css");
+@import url("components/footer.css");
+@import url("components/toast.css");
+@import url("components/countdown.css");
+@import url("components/product-card.css");
+
+@import url("sections/hero.css");
+@import url("sections/facts.css");
+@import url("sections/quiz.css");
+@import url("sections/origin.css");
+@import url("sections/story.css");
+@import url("sections/waitlist.css");
+@import url("sections/hotline.css");
+@import url("sections/faq.css");
+
+@import url("checkout.css");

@@ -1,0 +1,10 @@
+/* Compte à rebours du lot. */
+.count { margin-top: 24px; border: 1px solid var(--line2); border-radius: 6px; padding: 16px 16px 14px; background: var(--bg2); }
+.count .lbl { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-family: var(--mono); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.count .lbl b { color: var(--gold); font-weight: 500; }
+.digits { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-top: 10px; }
+.digits div { display: flex; flex-direction: column; align-items: flex-start; }
+.digits b { font-family: var(--display); font-weight: 500; font-size: clamp(1.9rem, 9vw, 2.8rem); line-height: 1; font-variant-numeric: tabular-nums; display: inline-block; }
+.digits b.tick { animation: tick .5s var(--ease); }
+@keyframes tick { from { transform: translateY(-30%); color: var(--gold); } to { transform: none; } }
+.digits i { font-style: normal; font-family: var(--mono); font-size: .68rem; color: var(--dim); margin-top: 4px; }
